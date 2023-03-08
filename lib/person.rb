@@ -50,31 +50,31 @@ class Person
   end
 
   def take_bath
-    self.hygiene = [@hygiene + 4, 10].min
-    "♪ Rub-a-dub just relaxing in the tub ♪"
+    self.hygiene  += 4
+    "♪ Rub-a-dub just relaxing in the tub ♫"
   end
 
   def work_out
-    self.hygiene = [@hygiene - 3, 0].max
-    self.happiness = [@happiness + 2, 10].min
-    "♪ Another one bites the dust ♪"
+    self.hygiene -= 3
+    self.happiness  += 2
+    "♪ another one bites the dust ♫"
   end
 
   def call_friend(friend)
-    self.happiness = [@happiness + 3, 10].min
-    friend.happiness = [friend.happiness + 3, 10].min
-    "Hi #{friend.name}! It's great to hear from you!"
+    self.happiness  += 3
+    friend.happiness  += 3
+    "Hi #{friend.name}! It's #{name}. How are you?"
   end
 
   def start_conversation(friend, topic)
     case topic
     when "politics"
-      self.happiness = [@happiness - 2, 0].max
-      friend.happiness = [friend.happiness - 2, 0].max
+      self.happiness  -= 2
+      friend.happiness  -= 2
       "blah blah partisan blah lobbyist"
     when "weather"
-      self.happiness = [@happiness + 1, 10].min
-      friend.happiness = [friend.happiness + 1, 10].min
+      self.happiness  += 1
+      friend.happiness  += 1
       "blah blah sun blah rain"
     else
       "blah blah blah blah blah"
